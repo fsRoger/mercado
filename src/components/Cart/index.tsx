@@ -24,10 +24,12 @@ import {
 const Cart = ({ onClose }: any) => {
   const { cart, remove, increaseQuantity, decreaseQuantity } = useCartStore();
   const [formData, setFormData] = useState({
-    nome: "",
-    dataEntrega: ""
+    client_name: "",
+    delivery_date: "",
   });
   const [total, setTotal] = useState(0);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -39,15 +41,40 @@ const Cart = ({ onClose }: any) => {
 
   const handleSubmit = async () => {
     try {
+      const dataToSend = {
+        ...formData,
+        products: cart.map(product => ({
+          id: product.id,
+          quantity: product.quantity,
+          // Adicione outros campos do produto conforme necessário
+        }))
+      };
 
-      await axios.post("/v1/shopping", formData);
-
-      console.log("Dados enviados com sucesso!");
+      const response = await axios.post("/v1/shopping", dataToSend);
+      if (response.data.success) {
+        setSuccess("Compra realizada com sucesso!");
+        // Limpar o carrinho após a compra bem-sucedida
+        clearCart();
+      } else {
+        setError(response.data.message);
+      }
     } catch (error) {
       console.error("Erro ao enviar os dados:", error);
+      setError("Erro ao enviar os dados. Por favor, tente novamente.");
     }
   };
 
+  const clearCart = () => {
+    setFormData({
+      client_name: "",
+      delivery_date: "",
+      products: "",
+    });
+    setTotal(0);
+    setSuccess("");
+    setError("");
+    onClose();
+  };
 
   useEffect(() => {
     const newTotal = cart.reduce(
@@ -81,15 +108,15 @@ const Cart = ({ onClose }: any) => {
           <input
             type="text"
             placeholder="Nome"
-            name="nome"
-            value={formData.nome}
+            name="client_name"
+            value={formData.client_name}
             onChange={handleFormChange}
           />
           <input
             type="date"
             placeholder="Data de entrega"
-            name="dataEntrega"
-            value={formData.dataEntrega}
+            name="delivery_date"
+            value={formData.delivery_date}
             onChange={handleFormChange}
           />
         </Formulary>
@@ -128,7 +155,7 @@ const Cart = ({ onClose }: any) => {
       <CartFooter>
         <TotalPrice>
           <p>Total: </p>
-          <p>R$ {total}</p>
+          <p>R${total.toFixed(2)}</p>
         </TotalPrice>
         <CheckoutButton onClick={handleSubmit}>Finalizar Compra</CheckoutButton>
       </CartFooter>
