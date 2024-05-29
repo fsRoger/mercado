@@ -2,17 +2,18 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import ProductItem from "@/components/ProductItem";
-import { ContentContainer } from "./styles";
+import { ContentContainer, Pagination, Container, ContainerProduct } from "./styles";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const itemsPerPage = 12;
 
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData", currentPage],
     queryFn: () =>
       fetch(
-        `http://localhost:3003/v1/products?page=${currentPage}&rows=${itemsPerPage}&sortBy=id&orderBy=DESC`
+        `http://localhost:3003/v1/products?skip=${(currentPage - 1) *
+        itemsPerPage}&take=${itemsPerPage}`
       ).then((res) => res.json()),
     enabled: !!currentPage,
   });
@@ -29,18 +30,34 @@ export default function Home() {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <ContentContainer>
-      {data && data.products.map((product, index) => {
+    <>
+      <Container>
+        <div>
+          <ContainerProduct>
+            <ContentContainer>
+              {data && data.products.map((product: any, index: number) => {
+                const transformedProduct = {
+                  ...product,
+                  qtyStock: product.qty_stock
+                };
+                return <ProductItem key={index} product={transformedProduct} />;
+              })}
+            </ContentContainer>
+          </ContainerProduct>
+        </div>
 
-        const { qty_stock: qtyStock, ...rest } = product;
-        const productWithQtyStock = { ...rest, qtyStock };
+        <Pagination>
+          <button className="pagination "
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}>
+            Anterior
+          </button>
+          <button className="pagination "
+            onClick={handleNextPage}
+            disabled={currentPage === 5}>Próximo</button>
+        </Pagination>
+      </Container>
 
-        return <ProductItem key={index} product={productWithQtyStock} />;
-      })}
-      <div>
-        <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous</button>
-        <button onClick={handleNextPage}>Next</button>
-      </div>
-    </ContentContainer>
+    </>
   );
 }

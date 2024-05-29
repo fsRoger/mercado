@@ -18,18 +18,13 @@ const ProductItem = ({ product }: any) => {
 
   return (
     <Card>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-
+      <div >
       </div>
-
       <Container>
-        <span>{product.id}</span>
         <Title>{product.name}</Title>
-        <span>Estoque: {parseFloat(product.qtyStock).toFixed(0)}</span>
+        <span>Estoque: {product.qtyStock}</span>
       </Container>
       <Price>R$ {parseFloat(product.price).toFixed(2)}</Price>
-
-
       <BuyButton onClick={handleAddToCart}>COMPRAR</BuyButton>
     </Card>
   );

@@ -9,7 +9,7 @@ export const CartContainer = styled.div`
   right: 0;
   width: 486px;
   height: 100%;
-  background-color: #121e2b;
+  background-color:#12212c;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 2px 8px 0px #00000022;
   z-index: 999;
 
@@ -27,37 +27,51 @@ export const CartHeader = styled.div`
 `;
 
 export const CartTitle = styled.h2`
-  color: #ffffff;
-  font-size: 27px;
+  color: #f7bc05;
+  font-size: 28px;
   font-weight: 700;
-  margin-right: 40px;
+  margin-right: auto;
+ 
 `;
 
 export const CloseButton2 = styled.button`
-  background: #000000;
+  background: red;
   border: none;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 20px;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
   font-weight: 400;
   border-radius: 50%;
   position: absolute;
   top: -7px;
   right: -7px;
+
+  &:hover {
+    color: #fff;
+    background-color: red;
+    transition: 0.4s;
+    transform: scale(1.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 2px 8px 0px #00000022;
+  }
 `;
 
 export const CloseButton = styled.button`
-  background: #000000;
+  background: red;
   border: none;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 26px;
   cursor: pointer;
   width: 38px;
   height: 38px;
   font-weight: 400;
   border-radius: 50%;
+
+  &:hover {
+    background-color: red;
+    transition: 0.4s;
+    transform: scale(1.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 2px 8px 0px #00000022;
+  }
 `;
 
 export const CartContent = styled.div`
@@ -65,10 +79,11 @@ export const CartContent = styled.div`
   padding: 40px;
   overflow-y: auto;
   margin-top: 20px;
+
 `;
 
 export const ProductCard = styled.div`
-  align-items: flex-start; /* Alinha os itens no início do eixo principal */
+  align-items: flex-start;
   justify-content: space-between;
   background-color: #ffffff;
   padding: 20px;
@@ -79,33 +94,37 @@ export const ProductCard = styled.div`
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 2px 8px 0px #00000022;
   gap: 20px;
   position: relative;
-  display: flex; /* Adiciona display flex para controlar a disposição dos itens internos */
+  display: flex;
 `;
 
 
 export const ProductInfo = styled.div`
   display: flex;
-  flex-direction: column; /* Alinha os itens em coluna */
+  flex-direction: column;
+
+  h5{
+    padding-top: 4px;
+  }
 `;
 
 export const ProductName = styled.span`
   font-size: 13px;
   font-weight: 400;
-  color: #2c2c2c;
-  margin-bottom: auto; /* Empurra o nome para o topo */
+  color: #000000;
+  margin-bottom: auto;
 `;
 
 export const ProductPrice = styled.span`
   font-size: 20px;
   font-weight: 700;
   color: #000000;
-  margin-top: auto; /* Empurra o preço para a parte inferior */
+  margin-top: auto;
 `;
 
 export const ProductActions = styled.div`
   display: flex;
-  flex-direction: column; /* Alinha os itens em coluna */
-  justify-content: flex-start; /* Alinha os itens no início do eixo principal */
+  flex-direction: column; 
+  justify-content: flex-start;
 `;
 
 export const QuantityButton = styled.button`
@@ -128,7 +147,7 @@ export const TotalPrice = styled.span`
   justify-content: space-between;
   font-size: 28px;
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
   width: 100%;
   padding: 40px;
 `;
@@ -136,27 +155,31 @@ export const TotalPrice = styled.span`
 export const CheckoutButton = styled.button`
   width: 100%;
   height: 97px;
-  background-color: #000000;
+  background-color: #2cbf59;
   color: #ffffff;
   font-size: 28px;
   font-weight: 700;
 
   border: none;
   cursor: pointer;
+
+  &:hover {
+    background-color: #1C7737;
+    transition: 0.2s;
+   
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0px 2px 8px 0px #00000022;
+  }
 `;
 
-export const ProductImage = styled.img`
-  width: 46px;
-  height: 57px;
-  top: 25px;
-  left: 23px;
-`;
 export const Formulary = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
+  gap: 10px;
+  margin: 10px;
+
 
   input{
     width: 100%;
@@ -165,4 +188,22 @@ export const Formulary = styled.form`
     padding: 0 10px;
     margin-bottom: 10px;
   }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+    font-size: 14px;
+    font-weight: 400;
+
+    h2{
+      color: #fff;
+      font-size: 27px;
+      font-weight: 700;
+      margin-right: 40px;
+     
+    }
+  }
 `;
+
+  

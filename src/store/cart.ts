@@ -3,11 +3,11 @@ import { create } from "zustand";
 interface Product {
   id: number;
   name: string;
-  price: string;
-  qtyStock: number;
-  brand: string;
-  createdAt: string;
-  updatedAt: string;
+  price: number;
+  qty_stock: number;
+  // brand: string;
+  // createdAt: string;
+  // updatedAt: string;
 }
 
 interface CartItem extends Product {

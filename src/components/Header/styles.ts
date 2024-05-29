@@ -4,21 +4,14 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #121e2b;
+  background-color: #f7bc05;
   height: 101px;
 `;
 
 export const Title = styled.h1`
-  color: white;
-  font-size: 40px;
+  color: red;
+  font-size: 45px;
   font-weight: 600;
-`;
-
-export const Sub = styled.p`
-  color: white;
-  font-size: 20px;
-  font-weight: 300;
-  margin-top: 10px;
 `;
 
 export const LogoContainer = styled.div`

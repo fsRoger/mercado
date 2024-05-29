@@ -5,11 +5,11 @@ export const FooterContainer = styled.footer`
   justify-content: center;
   align-items: center;
   background-color: #121e2b;
-  height: 2rem;
+  height: 101px;
 `;
 
 export const FooterText = styled.p`
-  color: #000000;
+  color: #fff;
   font-size: 12px;
   text-align: center;
   font-weight: 400;

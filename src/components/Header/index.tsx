@@ -7,7 +7,6 @@ import {
   Container,
   LogoContainer,
   Title,
-  Sub,
   IconContainer,
   IconText,
 } from "./styles";
@@ -25,7 +24,6 @@ const Header = () => {
     <Container>
       <LogoContainer>
         <Title>Mercado</Title>
-
       </LogoContainer>
       <IconContainer onClick={toggleCart}>
         <Image src="/icon.svg" alt="Icon" width={19} height={18} />
