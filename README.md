@@ -2,22 +2,23 @@ Para rodar esse código basta seguir esses passos!
 -------------------------------------------------
 
 #clonar o repositório
+git clone (https://github.com/fsRoger/mercado.git)
 
-git clone urlDoRepositório
-cd nomeDaPasta mercado nesse caso!
+#Entrar na pasta raiz do projeto
+cd mercado
+
+#Instalar as bibliotecas
 npm i 
-npm run dev
+yarn i
 
+#Rodar o projeto
+npm run dev
+yarn run dev
 
 O back end deve ser rodado primeiro, em seguida o front
 para uma experiencia ideal.
 
-Foi um grande desafio desenvolver essa aplicação por usar um banco de dados que me era pouco familiar e a escolha de determinadas bibliotecas, a experiência foi enrriquecedora, o treino de lógica, requisição, manipulação de dados foi excencial para meu desenvolvimento, espero desafios maiores no futuro, sempre fazendo meu melhor para atender os clientes com tecnologia de ponta.
-
-
-
-
-
+Foi um grande desafio desenvolver essa aplicação por usar um banco de dados que me era pouco familiar, utilizei do Node com express para criar um backend e de prisma como banco de dados, que populei através de seed. no Front end usei react com seu frameowrk next, além de styled components para o Css, a experiência foi enrriquecedora, o treino de lógica, requisição, manipulação de dados foi excencial para meu desenvolvimento, espero desafios maiores no futuro, sempre fazendo meu melhor para atender os clientes com tecnologia de ponta.
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
