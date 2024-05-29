@@ -11,9 +11,7 @@ export default function Home() {
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData", currentPage],
     queryFn: () =>
-      fetch(
-        `http://localhost:3003/v1/products?skip=${(currentPage - 1) *
-        itemsPerPage}&take=${itemsPerPage}`
+      fetch(`http://localhost:3003/v1/products?skip=${(currentPage - 1) * itemsPerPage}&take=${itemsPerPage}`
       ).then((res) => res.json()),
     enabled: !!currentPage,
   });

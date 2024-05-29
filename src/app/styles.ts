@@ -40,7 +40,6 @@ export const ContainerProduct = styled.div`
   align-items: center;
   justify-content: center;
   padding-left: 1rem;
-  padding-right: 1rem;
 `;
 
 export const ContentContainer = styled.div`
