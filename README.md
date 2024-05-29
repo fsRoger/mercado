@@ -2,7 +2,7 @@ Para rodar esse código basta seguir esses passos!
 -------------------------------------------------
 
 #clonar o repositório
-git clone (https://github.com/fsRoger/mercado.git)
+git clone https://github.com/fsRoger/mercado.git
 
 #Entrar na pasta raiz do projeto
 cd mercado
